@@ -1,0 +1,28 @@
+ .venv3\Scripts\activate --> aktivatsiya qilish ya'ni faollashtirish
+
+
+
+
+
+
+github - bo'yicha ko'nikmalar
+
+git init  --  loyiha yaratish uchun
+git add . --  fayllarni qo'shish
+git commit -m "..."  --    fayllarni nomlab saqlash
+git push  --  githubga yuborish
+
+birmarta githubga ulash mumkin
+
+git remote add origin https://github.com/USERNAME/REPO.git
+git branch -M main
+git push -u origin main
+
+
+
+
+
+
+
+
+

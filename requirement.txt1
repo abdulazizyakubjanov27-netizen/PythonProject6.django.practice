@@ -1,0 +1,8 @@
+.venv3 == 26.0.1
+django== 6.0.3
+psycopg2-binary== 2.9.11
+django-extensions==
+jupyter==
+asgiref         3.11.1
+certifi         2026.2.25
+pip             26.0.1
