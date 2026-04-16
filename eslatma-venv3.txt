@@ -11,6 +11,7 @@ git init  --  loyiha yaratish uchun
 git add . --  fayllarni qo'shish
 git commit -m "..."  --    fayllarni nomlab saqlash
 git push  --  githubga yuborish
+git pull --  yangilangan githubdagi yangiliklarni olamiz
 
 birmarta githubga ulash mumkin
 
