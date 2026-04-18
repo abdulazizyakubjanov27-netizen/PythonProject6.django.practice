@@ -1,18 +1,22 @@
 from django import forms
 
-from books.models import Books
+from books.models import Book
 
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = "__all__"
 
-class BooksForm(forms.Form):
-    title = forms.CharField(max_length=100)
-    description = forms.CharField(widget=forms.Textarea,
-                                  label="Xabar")
-    price = forms.DecimalField(max_digits=10, decimal_places=2)
+# class BookForm(forms.Form):
+#     title = forms.CharField(max_length=100)
+#     description = forms.CharField(widget=forms.Textarea,
+#                                   label="Xabar")
+#     price = forms.DecimalField(max_digits=10, decimal_places=2)
 
 
 class BookModelForm(forms.ModelForm):
     class Meta:
-        model = Books
+        model = Book
         fields = ['title', 'description', 'price', 'authors']
         widgets = {
             'description': forms.Textarea(attrs={

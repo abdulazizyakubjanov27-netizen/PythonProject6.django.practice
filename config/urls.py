@@ -33,6 +33,7 @@ def base(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('book/',include('books.urls')),
-    path('templates', home),
+    path('books/', include('books.urls')),
+    path('products/', include('products.urls')),
+    path('accounts/', include('accounts.urls')),
 ]

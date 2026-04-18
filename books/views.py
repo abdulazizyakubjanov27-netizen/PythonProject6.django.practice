@@ -1,29 +1,42 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from books.models import Books
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Book
+from .forms import BookForm
 
 
+# READ (list)
 def book_list(request):
-    books = Books.objects.all()  # Queryset list [<booq1>.
-    return render(request,'books/list.html', {"books":books})
+    books = Book.objects.all()
+    return render(request, 'books/list.html', {'books': books})
 
 
-def book_detail(request,pk):
-    book = Books.objects.filter(id=pk).first()
-    return render(request,'books/detail.html', {"book":book})
-
-def book_create_form(request):
-    return HttpResponse("Book create form page")
-
+# CREATE
 def book_create(request):
-    return HttpResponse("Book created")
+    form = BookForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('book_list')
 
-def book_update_forme(request):
-    return HttpResponse("Book update forme")
+    return render(request, 'books/create.html', {'form': form})
 
-def book_update(request):
-    return HttpResponse("Book update")
 
-def book_delete(request):
-    return HttpResponse("Book delete")
+# UPDATE
+def book_update(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    form = BookForm(request.POST or None, instance=book)
 
+    if form.is_valid():
+        form.save()
+        return redirect('book_list')
+
+    return render(request, 'books/update.html', {'form': form})
+
+
+# DELETE
+def book_delete(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+
+    if request.method == "POST":
+        book.delete()
+        return redirect('book_list')
+
+    return render(request, 'books/delete.html', {'book': book})

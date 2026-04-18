@@ -1,16 +1,6 @@
 from django.db import models
 
 
-class Product(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-
 class BookType(models.TextChoices):
     STANDARD = 'standard'
     BADIIY = 'badiiy'
@@ -31,7 +21,7 @@ class Author(models.Model):
 
 
 # id -> primary key-serial,title->varchar(255),description->text,author-varchar,type-> varchar
-class Books(models.Model):
+class Book(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     authors = models.ManyToManyField(Author, related_name='books')
