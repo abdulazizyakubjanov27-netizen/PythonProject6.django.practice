@@ -6,7 +6,8 @@ from .forms import BookForm
 # READ (list)
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'books/list.html', {'books': books})
+    print(books)
+    return render(request, 'book/list.html', {'book': books})
 
 
 # CREATE
@@ -16,7 +17,7 @@ def book_create(request):
         form.save()
         return redirect('book_list')
 
-    return render(request, 'books/create.html', {'form': form})
+    return render(request, 'book/create.html', {'form': form})
 
 
 # UPDATE
@@ -28,7 +29,7 @@ def book_update(request, pk):
         form.save()
         return redirect('book_list')
 
-    return render(request, 'books/update.html', {'form': form})
+    return render(request, 'book/update.html', {'form': form})
 
 
 # DELETE
@@ -39,4 +40,4 @@ def book_delete(request, pk):
         book.delete()
         return redirect('book_list')
 
-    return render(request, 'books/delete.html', {'book': book})
+    return render(request, 'book/delete.html', {'book': book})

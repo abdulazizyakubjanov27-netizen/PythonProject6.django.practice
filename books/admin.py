@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Books, Author
+from .models import Book, Author
 
 # admin.site.register(Books)
 # admin.site.register(Author)
 
-@admin.register(Books)
+@admin.register(Book)
 class BooksAdmin(admin.ModelAdmin):
     list_display = ('title', 'description')
 
