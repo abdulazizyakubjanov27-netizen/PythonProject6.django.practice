@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f6fa;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .card {
+            width: 250px;
+            margin: 15px auto;
+            padding: 18px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background: #e8f0ff;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🚀 Admin Dashboard</h1>
+
+    <div class="card">
+        <a href="{% url 'book_list' %}">📚 Books</a>
+    </div>
+
+    <div class="card">
+        <a href="{% url 'product_list' %}">🛒 Products</a>
+    </div>
+
+    <div class="card">
+        <a href="{% url 'post_list' %}">📝 Posts</a>
+    </div>
+
+    <div class="card">
+        <a href="/admin/">⚙️ Django Admin</a>
+    </div>
+</div>
+
+</body>
+</html>

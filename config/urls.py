@@ -30,11 +30,15 @@ def home(request):
 def base(request):
     return
 
+def dashboard(request):
+    return render(request, "dashboard.html")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('dashboard/', dashboard),
     path('books/', include('books.urls')),
     path('products/', include('products.urls')),
     path('accounts/', include('accounts.urls')),
+    path('posts/', include('posts.urls')),
 ]
 
