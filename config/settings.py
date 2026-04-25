@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'products',
     'accounts',
     'posts',
+    'files',
+    'media',
 ]
 
 MIDDLEWARE = [
