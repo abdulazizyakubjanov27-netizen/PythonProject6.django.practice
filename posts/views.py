@@ -21,3 +21,17 @@ def post_list(request):
     return render(request, 'posts/list.html', {
         'page_obj': page_obj,
     })
+
+from .decorators import login_required
+
+@login_required
+def post_create(request):
+    ...
+
+@login_required
+def post_update(request, pk):
+    ...
+
+@login_required
+def post_delete(request, pk):
+    ...

@@ -1,0 +1,24 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+.env
+.venv/
+.venv_2/
+.venv_3/
+venv/
+env/
+# virtual env
+#.venv/
+#venv/
+.venv3/
+
+# certificates
+*.crt
+*.key
+
+## py cache
+#__pycache__/
+#*.pyc

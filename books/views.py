@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book
 from .forms import BookForm
-
+from .decorators import login_required
 
 # READ (list)
 def book_list(request):
@@ -10,7 +10,7 @@ def book_list(request):
     return render(request, 'book/list.html', {'book': books})
 
 
-# CREATE
+@login_required
 def book_create(request):
     form = BookForm(request.POST or None)
     if form.is_valid():
@@ -20,7 +20,7 @@ def book_create(request):
     return render(request, 'book/create.html', {'form': form})
 
 
-# UPDATE
+@login_required
 def book_update(request, pk):
     book = get_object_or_404(Book, pk=pk)
     form = BookForm(request.POST or None, instance=book)
@@ -32,7 +32,7 @@ def book_update(request, pk):
     return render(request, 'book/update.html', {'form': form})
 
 
-# DELETE
+@login_required
 def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
 
