@@ -15,14 +15,19 @@
 from django.urls import path
 from . import views
 
+# urlpatterns = [
+#     path('list/', views.book_list, name='book_list'),
+#     path('create/', views.book_create, name='book_create'),
+#     # path('<int:pk>/edit/', views.book_update, name='book_update'),
+#     # path('update-form/<int:pk>/', views.book_update_forme, name='post_update_form'),
+#     path('update/<int:pk>/', views.book_update, name='book_update'),
+#     path('<int:pk>/delete/', views.book_delete, name='book_delete'),
+# ]
+
 urlpatterns = [
-    path('books/', views.book_list, name='book_list'),
+    path('list/', views.book_list, name='book_list'),  # 👈 /books/
     path('create/', views.book_create, name='book_create'),
-    path('<int:pk>/edit/', views.book_update, name='book_update'),
-    path('update-form/<int:pk>/', views.book_update_forme, name='post_update_form'),
     path('update/<int:pk>/', views.book_update, name='book_update'),
     path('<int:pk>/delete/', views.book_delete, name='book_delete'),
 ]
-
-
 

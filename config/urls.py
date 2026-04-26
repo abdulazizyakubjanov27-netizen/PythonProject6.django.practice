@@ -27,8 +27,7 @@ def home(request):
     return render(request, 'home.html', context={"name": name})
     # return HttpResponse("Hello, world.")
 
-def base(request):
-    return
+
 
 def dashboard(request):
     return render(request, "dashboard.html")
@@ -40,5 +39,6 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('accounts/', include('accounts.urls')),
     path('posts/', include('posts.urls')),
+    path('', home)
 ]
 

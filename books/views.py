@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book
 from .forms import BookForm
-from .decorators import login_required
+from .utils import login_required
+
 
 # READ (list)
 def book_list(request):
     books = Book.objects.all()
     print(books)
-    return render(request, 'book/list.html', {'book': books})
+    return render(request, 'books/list.html', {'book': books})
 
 
 @login_required

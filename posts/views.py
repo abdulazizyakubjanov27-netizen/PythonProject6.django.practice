@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Q
+
+from books.utils import login_required
 from .models import Post
 
 def post_list(request):
@@ -22,7 +24,7 @@ def post_list(request):
         'page_obj': page_obj,
     })
 
-from .decorators import login_required
+
 
 @login_required
 def post_create(request):
