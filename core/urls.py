@@ -1,5 +1,5 @@
 """
-URL configuration for config project.
+URL configuration for core project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -27,7 +27,8 @@ def home(request):
     return render(request, 'home.html', context={"name": name})
     # return HttpResponse("Hello, world.")
 
-
+def order(request):
+    return render(request, 'order.html')
 
 def dashboard(request):
     return render(request, "dashboard.html")
@@ -39,6 +40,7 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('accounts/', include('accounts.urls')),
     path('posts/', include('posts.urls')),
-    path('', home)
+    path('', home),
+    path('order/', include('orders.urls'))
 ]
 

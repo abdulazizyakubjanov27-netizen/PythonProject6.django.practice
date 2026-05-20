@@ -84,7 +84,7 @@ class Post(models.Model):
 
     objects = DeletedManager()
 
-def delete(self, *args, **kwargs):
+def delete(self):
     self.is_deleted = True
     self.save()
 
