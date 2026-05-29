@@ -33,6 +33,14 @@ def order(request):
 def dashboard(request):
     return render(request, "dashboard.html")
 
+def books(request):
+    return render(request, 'books.html')
+
+def account(request):
+    return render(request, "account.html")
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', dashboard),
@@ -41,6 +49,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('posts/', include('posts.urls')),
     path('', home),
-    path('order/', include('orders.urls'))
+    path('order/', include('orders.urls')),
+    path('accounts/', include('allauth.urls')),
+
 ]
 

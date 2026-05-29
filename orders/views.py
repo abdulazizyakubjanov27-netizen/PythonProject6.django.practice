@@ -30,7 +30,7 @@ def book_update(request, pk):
         form.save()
         return redirect('order_list')
 
-    return render(request, 'book/update.html', {'form': form})
+    return render(request, 'book/forgot_password.html', {'form': form})
 
 
 @login_required

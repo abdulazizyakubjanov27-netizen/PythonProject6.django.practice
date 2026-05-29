@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+
+<div id="question-box">
+    <h2 id="question"></h2>
+
+    <input type="text" id="answer">
+    <button onclick="nextQuestion()">Javob berish</button>
+</div>
+
+<script>
+    const questions = [
+        "1 + 1 = ?",
+        "2 + 2 = ?",
+        "3 + 3 = ?",
+        "4 + 4 = ?",
+        "5 + 5 = ?",
+        "6 + 6 = ?",
+        "7 + 7 = ?",
+        "8 + 8 = ?",
+        "9 + 9 = ?",
+        "10 + 10 = ?"
+    ];
+
+    let current = 0;
+
+    document.getElementById("question").innerText = questions[current];
+
+    function nextQuestion() {
+        let answer = document.getElementById("answer").value;
+
+        console.log("Javob:", answer);
+
+        current++;
+
+        if (current < questions.length) {
+            document.getElementById("question").innerText = questions[current];
+            document.getElementById("answer").value = "";
+        } else {
+            document.getElementById("question-box").innerHTML =
+                "<h2>Tugadi!</h2>";
+        }
+    }
+</script>
+
+</body>
+</html>

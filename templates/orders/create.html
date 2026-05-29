@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY WORK</title>
 </head>
 <body>
+
+    <h1>Hello, Abdulaziz</h1>
+
+    <!-- 1-savol -->
+    <div id="question1">
+        <h2>Hi! What's your name brother?</h2>
+
+        <input type="text" id="nameInput" placeholder="Enter your name">
+
+        <button onclick="showNextQuestion()">OK</button>
+    </div>
+
+    <!-- 2-savol -->
+    <div id="question2" style="display: none;">
+        <h2 id="result"></h2>
+
+        <h3>How are you today?</h3>
+
+        <input type="text" placeholder="Your answer">
+
+        <h4></h4>
+
+        <button>Finish</button>
+    </div>
+
+    <script>
+        function showNextQuestion() {
+
+            let name = document.getElementById("nameInput").value;
+
+            document.getElementById("result").innerText =
+                "Nice to meet you, " + name + "!";
+
+            document.getElementById("question1").style.display = "none";
+
+            document.getElementById("question2").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>

@@ -1,6 +1,9 @@
 from django.contrib.auth import authenticate
 from accounts.models import User
 from django import forms
+from django.utils import timezone
+
+from .models import Code
 
 
 class RegisterForm(forms.ModelForm):
@@ -48,3 +51,35 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username')
+
+class ForgotPasswordForm(forms.Form):
+    username = forms.CharField(max_length=150)
+
+# Restore Password Form
+
+class RestorePasswordForm(forms.Form):
+    code = forms.IntegerField()
+    new_password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        code = cleaned_data.get('code')
+        new_password = cleaned_data.get('new_password')
+        confirm_password = cleaned_data.get('confirm_password')
+
+        code_obj = Code.objects.filter(code=code).first()
+
+        if not code_obj:
+            raise forms.ValidationError("Code noto'g'ri")
+
+        if code_obj.expired_date < timezone.now():
+            raise forms.ValidationError("Code eskirgan")
+
+        if new_password != confirm_password:
+            raise forms.ValidationError("Parollar bir xil emas")
+
+        cleaned_data['user'] = code_obj.user
+
+        return cleaned_data
